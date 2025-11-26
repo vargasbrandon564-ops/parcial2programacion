@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido - Gestión de Alumnos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hero-section {
+            padding: 60px 0;
+        }
+        
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .left-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 500px;
+        }
+        
+        .left-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .left-section p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item {
+            margin-bottom: 30px;
+        }
+        
+        .right-section {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .welcome-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .welcome-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        
+        .action-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .action-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+            text-decoration: none;
+        }
+        
+        .action-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .action-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .action-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .action-link {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .action-link:hover {
+            color: #764ba2;
+        }
+        
+        .stats-row {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .left-section, .right-section {
+                padding: 40px 30px;
+            }
+            
+            .left-section h1 {
+                font-size: 2rem;
+            }
+            
+            .welcome-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container hero-section">
+        <div class="main-card">
+            <div class="row g-0">
+                <!-- Sección Izquierda - Información -->
+                <div class="col-lg-6 left-section">
+                    <div>
+                        <i class="bi bi-mortarboard-fill" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                        <h1>Sistema de Gestión de Alumnos</h1>
+                        <p class="mb-4">
+                            Plataforma completa para administrar la información de tus estudiantes, 
+                            generar reportes en PDF y realizar búsquedas educativas.
+                        </p>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <h5>Gestión de Alumnos</h5>
+                            <p>Crea, edita y administra toda la información de tus estudiantes en un solo lugar.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                            </div>
+                            <h5>Reportes en PDF</h5>
+                            <p>Genera documentos profesionales y envíalos automáticamente por correo electrónico.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-search"></i>
+                            </div>
+                            <h5>Búsqueda Educativa</h5>
+                            <p>Accede a contenido educativo actualizado desde fuentes confiables.</p>
+                        </div>
+                        
+                        <div class="row stats-row">
+                            <div class="col-4 stat-item">
+                                <span class="stat-number"><i class="bi bi-shield-check"></i></span>
+                                <span class="stat-label">Seguro</span>
+                            </div>
+                            <div class="col-4 stat-item">
+                                <span class="stat-number"><i class="bi bi-lightning-charge"></i></span>
+                                <span class="stat-label">Rápido</span>
+                            </div>
+                            <div class="col-4 stat-item">
+                                <span class="stat-number"><i class="bi bi-check-circle"></i></span>
+                                <span class="stat-label">Fácil</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sección Derecha - Acciones -->
+                <div class="col-lg-6 right-section">
+                    <h2 class="welcome-title">¡Bienvenido!</h2>
+                    <p class="welcome-subtitle">Selecciona una opción para comenzar</p>
+                    
+                    <!-- Tarjeta de Login -->
+                    <a href="{% url 'login' %}" class="action-card">
+                        <div class="action-icon">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                        </div>
+                        <div class="action-title">Iniciar Sesión</div>
+                        <div class="action-description">
+                            ¿Ya tienes una cuenta? Accede a tu dashboard y gestiona tus alumnos.
+                        </div>
+                        <span class="action-link">
+                            Ingresar ahora <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </a>
+                    
+                    <!-- Tarjeta de Registro -->
+                    <a href="{% url 'register' %}" class="action-card">
+                        <div class="action-icon">
+                            <i class="bi bi-person-plus"></i>
+                        </div>
+                        <div class="action-title">Crear Cuenta</div>
+                        <div class="action-description">
+                            ¿Primera vez aquí? Regístrate gratis y comienza a usar la plataforma.
+                        </div>
+                        <span class="action-link">
+                            Registrarse gratis <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </a>
+                    
+                    <div class="text-center mt-4">
+                        <small class="text-muted">
+                            <i class="bi bi-info-circle"></i> 
+                            Todos tus datos están protegidos y seguros
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center mt-4">
+            <p class="text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                <small>
+                    <i class="bi bi-code-slash"></i> 
+                    Desarrollado con Django & Bootstrap | © 2025
+                </small>
+            </p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

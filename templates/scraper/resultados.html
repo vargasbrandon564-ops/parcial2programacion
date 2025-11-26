@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados de Scraping{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card card-custom">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2><i class="bi bi-list-check"></i> Resultados de Búsqueda</h2>
+                        <p class="text-muted mb-0">
+                            Palabra clave: <strong>{{ busqueda.palabra_clave }}</strong>
+                            | Fecha: {{ busqueda.fecha_busqueda|date:"d/m/Y H:i" }}
+                        </p>
+                    </div>
+                    <a href="{% url 'scraper_home' %}" class="btn btn-primary">
+                        <i class="bi bi-arrow-left"></i> Nueva Búsqueda
+                    </a>
+                </div>
+
+                {% if resultados %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th style="width: 5%">#</th>
+                                <th style="width: 30%">Título</th>
+                                <th style="width: 50%">Descripción</th>
+                                <th style="width: 15%">Enlace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for resultado in resultados %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td><strong>{{ resultado.titulo }}</strong></td>
+                                <td>{{ resultado.descripcion|truncatewords:30 }}</td>
+                                <td>
+                                    <a href="{{ resultado.url }}" target="_blank" 
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-box-arrow-up-right"></i> Ver
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="alert alert-info mt-3">
+                    <i class="bi bi-envelope-check"></i> 
+                    Estos resultados han sido enviados a tu correo electrónico: 
+                    <strong>{{ request.user.email }}</strong>
+                </div>
+                {% else %}
+                <div class="alert alert-warning text-center">
+                    <i class="bi bi-exclamation-triangle"></i> 
+                    No se encontraron resultados para esta búsqueda.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

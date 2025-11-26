@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Scraper Educativo{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card card-custom">
+            <div class="card-body p-5">
+                <h2 class="text-center mb-4">
+                    <i class="bi bi-search"></i> Scraper Educativo de Wikipedia
+                </h2>
+                <p class="text-center text-muted mb-4">
+                    Busca información educativa y recibe los resultados por correo electrónico
+                </p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="palabra_clave" class="form-label">Palabra Clave</label>
+                        <input type="text" class="form-control form-control-lg" 
+                               id="palabra_clave" name="palabra_clave" 
+                               placeholder="Ej: Python, Matemáticas, Historia..." required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 btn-lg">
+                        <i class="bi bi-search"></i> Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        {% if busquedas_recientes %}
+        <div class="card card-custom mt-4">
+            <div class="card-body">
+                <h5><i class="bi bi-clock-history"></i> Búsquedas Recientes</h5>
+                <div class="list-group list-group-flush">
+                    {% for busqueda in busquedas_recientes %}
+                    <a href="{% url 'scraper_resultados' busqueda.id %}" 
+                       class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ busqueda.palabra_clave }}</h6>
+                            <small>{{ busqueda.fecha_busqueda|date:"d/m/Y H:i" }}</small>
+                        </div>
+                        <small class="text-muted">{{ busqueda.resultados.count }} resultado(s)</small>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
