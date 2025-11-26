@@ -69,16 +69,14 @@ DATABASES = {
     }
 }
 
-# Sobrescribir con PostgreSQL si hay variables de entorno (producción en Render)
+# Sobrescribir con PostgreSQL si hay DATABASE_URL (producción en Render)
 if os.environ.get('DATABASE_URL'):
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('PGDATABASE'),
-        'USER': os.environ.get('PGUSER'),
-        'PASSWORD': os.environ.get('PGPASSWORD'),
-        'HOST': os.environ.get('PGHOST'),
-        'PORT': os.environ.get('PGPORT'),
-    }
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 
 
 
