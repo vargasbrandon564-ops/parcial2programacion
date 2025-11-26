@@ -7,12 +7,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = 'django-insecure-ca@r_)_i*@vdfz5*!lu=ym#enq7s1$^*_!26#_wuml9@3^@%nn'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ca@r_)_i*@vdfz5*!lu=ym#enq7s1$^*_!26#_wuml9@3^@%nn')
 
 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else ['*']
+# En producción, Render establece RENDER_EXTERNAL_HOSTNAME
+ALLOWED_HOSTS = ['*']
+if os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
+    ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+elif os.environ.get('ALLOWED_HOSTS'):
+    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
 
 
 
