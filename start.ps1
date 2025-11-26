@@ -1,13 +1,12 @@
-# Script de inicio rápido
-# Para Windows PowerShell
+
 
 Write-Host "🚀 Iniciando proyecto Django..." -ForegroundColor Green
 
-# Activar entorno virtual
+
 Write-Host "`n📦 Activando entorno virtual..." -ForegroundColor Cyan
 & "C:/Users/Usuario/OneDrive/Escritorio/parcial2programacion/.venv/Scripts/Activate.ps1"
 
-# Ir al directorio del proyecto
+
 Set-Location "C:\Users\Usuario\OneDrive\Escritorio\parcial2programacion"
 
 Write-Host "`n✅ Entorno activado!" -ForegroundColor Green
